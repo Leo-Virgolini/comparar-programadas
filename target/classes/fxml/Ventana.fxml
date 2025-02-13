@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1283.0" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ar.com.leo.comparar.fx.controller.VentanaController">
+   <children>
+      <TextArea fx:id="antiguaTextArea" editable="false" layoutX="1162.4" layoutY="11.0" prefHeight="46.0" prefWidth="116.0" AnchorPane.leftAnchor="1162.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="11.0">
+         <font>
+            <Font name="Calibri Bold Italic" size="14.0" />
+         </font></TextArea>
+      <Button layoutX="982.0" layoutY="11.0" mnemonicParsing="false" onAction="#buscarProgramadaAntigua" prefHeight="46.0" prefWidth="174.0" text="Examinar...">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="33.0" fitWidth="60.0" preserveRatio="true">
+               <image>
+                  <Image url="@../images/pdf.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Label layoutX="5.0" layoutY="19.0" prefHeight="31.0" prefWidth="290.0" text="Ubicación programada antigua (.pdf):" wrapText="true">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <TextField fx:id="programadaAntiguaUbicacion" editable="false" layoutX="286.0" layoutY="12.0" prefHeight="46.0" prefWidth="691.0" />
+      <Button layoutX="982.0" layoutY="65.0" mnemonicParsing="false" onAction="#buscarProgramadaNueva" prefHeight="46.0" prefWidth="174.0" text="Examinar...">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="33.0" fitWidth="60.0" preserveRatio="true">
+               <image>
+                  <Image url="@../images/pdf.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Label layoutX="17.0" layoutY="73.0" prefHeight="31.0" prefWidth="289.0" text="Ubicación programada nueva (.pdf):" wrapText="true">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <TextField fx:id="programadaNuevaUbicacion" editable="false" layoutX="286.0" layoutY="66.0" prefHeight="46.0" prefWidth="691.0" />
+      <Button layoutX="521.0" layoutY="746.0" mnemonicParsing="false" onAction="#comparar" prefHeight="46.0" prefWidth="207.0" text="COMPARAR" textFill="#1101c9" AnchorPane.bottomAnchor="5.0">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Button>
+      <TextArea fx:id="nuevaTextArea" editable="false" layoutX="1162.4" layoutY="65.0" prefHeight="46.0" prefWidth="116.0" AnchorPane.leftAnchor="1162.0" AnchorPane.rightAnchor="5.0">
+         <font>
+            <Font name="Calibri Bold Italic" size="14.0" />
+         </font>
+      </TextArea>
+      <Label layoutX="1010.0" layoutY="113.0" text="AGREGADO:" textFill="#0dbc00">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="574.0" layoutY="113.0" text="MODIFICADO:" textFill="#d9cb00">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="153.0" layoutY="113.0" text="ELIMINADO:" textFill="RED">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <TableView fx:id="agregadoTable" layoutX="858.2" layoutY="141.0" prefHeight="596.0" prefWidth="420.0" tableMenuButtonVisible="true" AnchorPane.rightAnchor="5.0">
+         <columns>
+            <TableColumn editable="false" prefWidth="200.0" text="Artículo" />
+            <TableColumn editable="false" prefWidth="150.0" text="Talle" />
+            <TableColumn editable="false" prefWidth="150.0" text="Producir" />
+         </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <TableView fx:id="modificadoTable" layoutX="431.0" layoutY="141.0" prefHeight="596.0" prefWidth="420.0" tableMenuButtonVisible="true">
+         <columns>
+            <TableColumn editable="false" prefWidth="200.0" text="Artículo" />
+            <TableColumn editable="false" prefWidth="150.0" text="Talle" />
+            <TableColumn editable="false" prefWidth="150.0" text="Producir" />
+         </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <TableView fx:id="eliminadoTable" layoutX="3.0" layoutY="141.0" prefHeight="596.0" prefWidth="420.0" tableMenuButtonVisible="true" AnchorPane.leftAnchor="5.0">
+         <columns>
+            <TableColumn editable="false" prefWidth="200.0" text="Artículo" />
+            <TableColumn editable="false" prefWidth="150.0" text="Talle" />
+            <TableColumn editable="false" prefWidth="150.0" text="Producir" />
+         </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <TextArea fx:id="resultTextArea" editable="false" layoutX="735.0" layoutY="746.0" prefHeight="46.0" prefWidth="543.0" AnchorPane.rightAnchor="5.0">
+         <font>
+            <Font name="Calibri Bold Italic" size="14.0" />
+         </font>
+      </TextArea>
+   </children>
+</AnchorPane>
